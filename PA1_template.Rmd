@@ -73,7 +73,7 @@ activityimp$steps <- replace(activityimp$steps, is.na(activityimp$steps), means$
 #Make a histogram of the total number of steps taken each day and calculate and report the mean and median total number of steps taken per day
 numberperdayimp <- aggregate(activityimp$steps, list(activityimp$date), sum)
 
-hist(numberperdayimp$x, xlab="Number of Steps per day", main="Frequency of Number of Steps a day (with imputed steps)", col="yellow", labels=TRUE, ylim=c(2,40))
+hist(numberperdayimp$x, xlab="Number of Steps per day", main="Frequency of Number of Steps a day \n(with imputed steps)", col="yellow", labels=TRUE, ylim=c(2,40))
 
 meanstepsimp <- mean(numberperdayimp$x)
 
@@ -114,5 +114,5 @@ activityimp <- mutate(activityimp, dayofweek=weekday)
 #Aggregate by Interval and weekday/weekend
 activityimpavg <- aggregate(activityimp$steps, by=list(activityimp$interval, activityimp$dayofweek), FUN=mean)
 
-xyplot(x ~ Group.1 | Group.2, data=activityimpavg, type="l", layout=c(1,2), xlab="5-Minute Interval Idenfier", ylab="Number of Steps (average)", main="Average Number of Steps per interval on Weekend vs. Weekday")
+xyplot(x ~ Group.1 | Group.2, data=activityimpavg, type="l", layout=c(1,2), xlab="5-Minute Interval Idenfier", ylab="Number of Steps (average)", main="Average Number of Steps per interval \n on Weekend vs. Weekday")
 ```
